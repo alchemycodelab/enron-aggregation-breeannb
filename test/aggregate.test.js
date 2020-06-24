@@ -3,7 +3,7 @@ const emailsPerDay = require('../lib/emails-per-day');
 const emailRecipients = require('../lib/email-recipients');
 
 describe('aggregates enron messages', () => {
-  it.only('finds the min, max, and average emails per', () => {
+  it('finds the min, max, and average emails per', () => {
     return collection().aggregate(emailsPerDay)
       .toArray()
       .then(([{ min, max, avg }]) => {
@@ -13,7 +13,7 @@ describe('aggregates enron messages', () => {
       });
   });
 
-  it('finds the number of message sent to each email address and sorts in descending order', () => {
+  it.only('finds the number of message sent to each email address and sorts in descending order', () => {
     return collection().aggregate(emailRecipients)
       .toArray()
       .then(tos => {
